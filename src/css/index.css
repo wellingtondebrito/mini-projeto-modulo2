@@ -1,0 +1,10 @@
+:root{
+    /* Cores  */
+    --cor-primaria: #225A3F;
+    --cor-secundaria: #91C995;
+    --cor-destaque: #EFD470;
+
+    /* Fontes */
+    --fonte-titulo: 'Mulish', sans-serif;
+    --fonte-texto: 'Lora', serif;
+}
