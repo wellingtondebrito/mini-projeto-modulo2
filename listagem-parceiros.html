@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Parceiros - Área Administrativa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            /* Cores  */
+            --cor-primaria: #225A3F;
+            --cor-secundaria: #91C995;
+            --cor-destaque: #EFD470;
+
+            /* Fontes */
+            --fonte-titulo: 'Mulish', sans-serif;
+            --fonte-texto: 'Lora', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FDF8EF;
+            color: var(--cor-primaria);
+            font-family: var(--fonte-texto);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-family: var(--fonte-titulo);
+            font-size: 32px;
+            color: var(--cor-primaria);
+            margin-bottom: 10px;
+        }
+
+        .user-info {
+            background: var(--cor-secundaria);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logout-btn {
+            background: var(--cor-primaria);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: var(--fonte-titulo);
+            font-weight: 600;
+        }
+
+        .logout-btn:hover {
+            background: #1a4532;
+        }
+
+        .placeholder {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(34, 90, 63, 0.1);
+        }
+
+        .placeholder h2 {
+            font-family: var(--fonte-titulo);
+            color: var(--cor-destaque);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Área Administrativa - Listagem de Parceiros</h1>
+        </div>
+        
+        <div class="user-info">
+            <span>Logado como: <strong id="userEmail"></strong></span>
+            <button class="logout-btn" onclick="logout()">Sair</button>
+        </div>
+        
+        <div class="placeholder">
+            <h2>🎉 Login realizado com sucesso!</h2>
+            <p>Esta é a página de listagem de parceiros.</p>
+            <p>Aqui você implementará a funcionalidade de listagem dos parceiros da iniciativa.</p>
+        </div>
+    </div>
+
+    <script>
+        // Verificar se o usuário está logado
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const userEmail = localStorage.getItem('userEmail');
+
+        if (!isLoggedIn || !userEmail) {
+            window.location.href = 'login-page.html';
+        } else {
+            document.getElementById('userEmail').textContent = userEmail;
+        }
+
+        function logout() {
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('loginTime');
+            window.location.href = 'login-page.html';
+        }
+    </script>
+</body>
+</html>
