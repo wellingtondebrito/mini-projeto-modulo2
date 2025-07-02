@@ -8,3 +8,89 @@
     --fonte-titulo: 'Mulish', sans-serif;
     --fonte-texto: 'Lora', serif;
 }
+
+body{
+    background-color: #FDF8EF;
+    color: var(--cor-primaria);
+}
+
+/* HEADER */
+header{
+    width: 100%;
+    display: flex;
+}
+
+header nav.container-navegacao{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-header-img{
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+
+.container-header-img h1{
+    color: var(--cor-primaria);
+}
+.container-header-img img {
+  width: 100px; 
+  height: auto;
+}
+
+.container-navegacao .container-menu{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.container-navegacao .container-menu ul{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+
+    list-style: none;
+}
+
+.container-navegacao .container-menu ul li a{
+    font-weight: 600;
+    font-size: var(--fonte-titulo);
+    cursor: pointer;
+}
+
+/* MAIN */
+
+main .container-inicio{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+main .container-inicio > div:first-of-type {
+    width: 30%;
+    text-align: start;
+    height: auto;
+}
+
+main .container-inicio > div h2 {
+   font-size: 35px;
+}
+
+main .container-inicio > div p{
+   font-size: 16px;
+}
+
+main .container-inicio div:last-of-type {
+    width: 50%;
+    display: flex;
+}
+main .container-inicio div img{
+cursor: pointer;
+width: 90%;
+height: 500px;
+}
