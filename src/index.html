@@ -99,3 +99,53 @@
     </main>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Detalhes do Parceiro</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Mulish:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="parceiro.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Detalhes do Parceiro</h1>
+    <p class="subtitle">Veja as informações completas do parceiro selecionado</p>
+    
+    <section class="partner-header">
+      <div class="avatar" id="avatar">?</div>
+      <div class="partner-info">
+        <h2 id="partnerName"></h2>
+        <p id="partnerType" class="type"></p>
+        <p id="registerDate" class="date"></p>
+      </div>
+    </section>
+
+    <section class="details-section">
+      <div><strong>Responsável:</strong> <span id="responsible"></span></div>
+      <div><strong>Telefone:</strong> <span id="phone"></span></div>
+      <div><strong>E-mail:</strong> <span id="email"></span></div>
+    </section>
+
+    <section class="address-section">
+      <h3>Endereço</h3>
+      <div class="address-grid">
+        <div><strong>Rua:</strong> <span id="street"></span></div>
+        <div><strong>Número:</strong> <span id="number"></span></div>
+        <div><strong>Bairro:</strong> <span id="district"></span></div>
+      </div>
+    </section>
+
+    <section class="waste-section">
+      <h3>Tipos de Resíduos Aceitos</h3>
+      <ul id="wasteList" class="waste-list"></ul>
+    </section>
+
+    <button id="btnBack" class="btn-back">Voltar para lista</button>
+  </main>
+
+  <script src="parceiro.js"></script>
+</body>
+</html>
