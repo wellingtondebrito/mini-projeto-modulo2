@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 :root{
     /* Cores  */
     --cor-primaria: #225A3F;
@@ -13,9 +19,7 @@
 body{
     background-color: #FDF8EF;
     color: var(--cor-primaria);
-
-
-    padding: 10px 20px;
+   // padding: 10px 20px;
 
 }
 
@@ -44,6 +48,7 @@ header nav.container-navegacao{
 .container-header-img img {
   width: 100px; 
   height: auto;
+  
 }
 
 .container-navegacao .container-menu{
@@ -62,9 +67,7 @@ header nav.container-navegacao{
     list-style: none;
 }
 
-
-.container-navegacao .container-menu ul li button.btn-parceiro{
-
+.btn-parceiro{
     position: fixed;
     bottom: 20px; 
     right: 20px;  
@@ -80,16 +83,40 @@ header nav.container-navegacao{
     transition: all 0.3s ease;
     color: var(--cor-primaria);
     cursor: pointer;
+    text-decoration: none;
 
      animation: pulse 2s infinite;
 }
 
-.container-navegacao .container-menu ul li button.btn-parceiro:hover{
+.btn-parceiro:hover{
     transform: scale(1.1);
     background-color: var(--cor-secundaria);
     border-color: var(--cor-secundaria);
     color: var(--cor-primaria);
 }
+.btn-login{
+   
+    background-color: var(--cor-destaque);
+    border: 1px solid var(--cor-destaque); 
+    backdrop-filter: blur(10px); 
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    color: var(--cor-primaria);
+    cursor: pointer;
+    text-decoration: none;
+
+}
+
+.btn-login:hover{
+    transform: scale(1.1);
+    background-color: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
+}
+
+
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
@@ -109,8 +136,10 @@ header nav.container-navegacao{
 main .container-inicio{
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    
+    justify-content: space-around;    
+    padding: 20px;
+    align-items: start;  
+    border: 1px solid blue;  
 }
 main .container-inicio > div:first-of-type {
     width: 30%;
@@ -123,7 +152,7 @@ main .container-inicio > div h2 {
 }
 
 main .container-inicio > div p{
-   font-size: 16px;
+   font-size: 20px;
 }
 
 main .container-inicio div:last-of-type {
@@ -133,5 +162,60 @@ main .container-inicio div:last-of-type {
 main .container-inicio div img{
 cursor: pointer;
 width: 90%;
-height: 500px;
+max-width: 500px;   /* Limita a largura máxima */
+height: auto;       /* Mantém a proporção */
+object-fit: contain; /* Garante que a imagem não distorça */
+}
+
+.container-texto{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 20px;
+    border: 1px solid red;
+}
+
+.titulo{
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--cor-primaria);
+    margin-bottom: 10px;
+}
+
+.subtitulo{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--cor-primaria);
+    margin-bottom: 10px;
+}
+
+.paragrafo{
+    font-size: 20px;
+    color: var(--cor-primaria);
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.listas-conteudo{
+    list-style: disc;
+    padding-left: 20px;
+    font-size: 20px;
+    color: var(--cor-primaria);
+}
+
+.footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid var(--cor-primaria);
+    padding: 20px;
+}
+
+.footer img{
+    width: 100px;
+    height: auto;
+    margin-left: 10px;
 }
