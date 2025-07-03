@@ -17,14 +17,16 @@
         
         <div class="user-info">
             <span>Logado como: <strong id="userEmail"></strong></span>
-            <button class="logout-btn" onclick="logout()">Sair</button>
+            <button class="btn-primary" onclick="logout()">Sair</button>
         </div>
         
-        <form class="placeholder">
-            <input type="text" id="searchInput" placeholder="Pesquisar parceiro...">
-            <button type="submit" id="searchButton">Pesquisar</button>
+         <form class="form-pesquisa" id="searchForm" onsubmit="event.preventDefault(); filtrarParceiros(document.querySelector('.input-pesquisa').value.toLowerCase());">
+            <input type="text" placeholder="Pesquisar parceiro" class="input-pesquisa">
         </form>
+        <div class="container-principal">            
+        </div>
     </main>
-    <script src="/src/js/index.js"></script>
+    <script src="./js/index.js"></script>
+    
 </body>
 </html>

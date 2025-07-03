@@ -50,7 +50,7 @@
             align-items: center;
         }
 
-        .logout-btn {
+        .btn-primary {
             background: var(--cor-primaria);
             color: white;
             border: none;
@@ -61,20 +61,67 @@
             font-weight: 600;
         }
 
-        .logout-btn:hover {
+        .btn-primary:hover {
             background: #1a4532;
         }
 
-        .placeholder {
-            text-align: center;
-            padding: 60px 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(34, 90, 63, 0.1);
+       .container-principal {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 80%
+            border: 1 px solid red;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .placeholder h2 {
-            font-family: var(--fonte-titulo);
-            color: var(--cor-destaque);
+        .card-parceiro {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+        }
+
+    
+        .card-nome {
+            font-weight: semi-bold;
+            margin-bottom: 10px;
+        }
+
+        .card-info {
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+
+        }
+
+        .card-bairro,
+        .card-data {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .avatar-img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        .form-pesquisa {
+            display: flex;
+            justify-content: center;
             margin-bottom: 20px;
+        }
+
+        .input-pesquisa {
+            padding: 10px;
+            border: 1px solid var(--cor-primaria);
+            border-radius: 4px;
+            width: 60%;
+            margin-right: 10px;
         }
