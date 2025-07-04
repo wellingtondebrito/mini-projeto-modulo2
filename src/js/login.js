@@ -4,12 +4,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnEntrar = document.getElementById('btnEntrar');
     const loginForm = document.getElementById('loginForm');
 
+    console.log(emailInput, senhaInput, btnEntrar, loginForm);
+
+
     // Função para verificar se os campos estão preenchidos
     function verificarCampos() {
         const emailValido = emailInput.value.trim() !== '';
         const senhaValida = senhaInput.value.trim() !== '';
-        
+        console.log(`Email válido: ${emailValido}, Senha válida: ${senhaValida}`);
         btnEntrar.disabled = !(emailValido && senhaValida);
+
     }
 
     // Adicionar event listeners aos campos de input
@@ -39,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Como ainda não temos essa tela, vamos redirecionar para a página principal
                 // mas você pode alterar o caminho conforme necessário
                 window.location.href = 'listagem-parceiros.html'; // ou o caminho correto
+                window.alert('Login realizado com sucesso!');
             }, 1000);
         }
     });
@@ -59,3 +64,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
