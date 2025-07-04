@@ -4,38 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Mulish:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/css/index.css"
+    <link rel="stylesheet" href="/src/css/index.css">
+    <title> Nossa Cidade Sustentável</title>
 </head>
 <body>
-    <header>
+    <header class="scrolled">
         <nav class="container-navegacao">
-            <section class="container-header-img">
+            <div class="container-header-img">
                 <img src="/public/image/logo.webp" alt="logo">
                 <h1>  NOSSA CIDADE <br>SUSTENTÁVEL</h1>
-            </section>
+            </div>
 
-            <section class="container-menu">
+            <div class="container-menu">
                  <ul>
                     <li>
-                        <a title="Página inicial">Inicio</a>
+                        <a class="nav-link" href="#inicio" title="Página inicial">Inicio</a>
                     </li>
                     <li>
-                        <a title="Saiba mais sobre nós">Sobre</a>
+                        <a class="nav-link" href="#objetivo" title="Conheça nossos objetivos">Objetivos</a>
                     </li>
                     <li >
-                        <a title="Conheça os nossos serviços">Serviços</a>
+                        <a class="nav-link" href="#impacto" title="Conheça os nossos Impactos">Impacto</a>
                     </li>
                     <li>
-                        <a title="Saiba como entrar em contato conosco.">Contato</a>
+                        <a class="nav-link" href="#acoes" title="Saiba sobre nossas ações.">Ações</a>
                     </li>
                     <li><a href="#"  class="btn-parceiro">Seja um Parceiro</a></li>
                     <li><a href="./login-page.html"  class="btn-login">Login</a></li>
                 </ul>
-            </section>
+            </div>
            
     </header>
-    <main>
-        <section class="container-inicio">
+    <main class="container-principal">
+        <section class="container-inicio" id="inicio">
             <div >
                 <h2>GESTÃO EFICIENTE DE RESÍDUOS E CONSUMO CONSCIENTE</h2>
                 <p class="paragrafo">Iniciativas sustentáveis estão sendo implementadas em toda a cidade, incentivando o consumo consciente e a preservação do meio ambiente para as próximas gerações.</p>
@@ -44,7 +45,7 @@
                 <img src="/public/image/imagem1.webp" alt="homem segurando lata de lixo reciclável" title="homem segurando lata de lixo reciclável">
             </div>
         </section>
-        <section class="container-inicio">
+        <section class="container-inicio" id="objetivo">
             <article class="container-texto">
                 <h2 class="titulo">Objetivo do Projeto</h2>
                 <p class="paragrafo">Este projeto nasce com o propósito de promover cidades mais sustentáveis por meio da educação ambiental, 
@@ -57,9 +58,22 @@
                    queremos engajar cidadãos, escolas, empresas e o poder público na mudança 
                    de hábitos que impactam diretamente a saúde do nosso planeta e das nossas comunidades. 
                 </p>
+
+                <div class="video-container">
+                    <iframe width="560" height="315" 
+                    src="https://www.youtube-nocookie.com/embed/krdFo9uWRyw?si=yS_R1s4J-JHiClqP" 
+                    title="YouTube video player"  allow="accelerometer; autoplay; 
+                    clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+    
+                </div>
                     
             </article>
-            <article class="container-texto impacto">
+            
+        </section>
+        <section class="container-inicio" id="impacto">
+             <article class="container-texto impacto">
                 <h2 class="titulo">Impacto</h2>
                 <h4 class="subtitulo">Ao conectar educação, ação e tecnologia, nosso projeto contribui para:</h4>
                 <ul class="listas-conteudo">
@@ -69,26 +83,33 @@
                     <li>Valorização de cooperativas de reciclagem e catadores, fortalecendo a economia circular local.</li>
                     <li>Formação de uma cultura de consumo consciente e responsabilidade coletiva.</li>
                 </ul>
-            </article>            
+            </article>           
         </section>
-        <section class="container-inicio">
-            <article>
+        <section class="content-section" id="acoes">
+            <article class="container-texto-acoes">
                 <h2 class="titulo">Ações</h2>
                 <p class="paragrafo">Veja como você pode participar e contribuir:</p>
-                <ul class="listas-conteudo">
-                    <li>
-                        <strong>Doe seus recicláveis para uma cooperativa local:</strong>
-                        Separe seus resíduos e entregue em pontos de coletas ou diretamente em cooperativas da sua região.
-                    </li>
-                    <li>
-                        <strong>Participe de campanhas e eventos:</strong>
-                        Fique atento ao calendário de ações e envolva-se em multirões, palestras e atividades de conscientização.
-                    </li>
-                    <li>
-                        <strong>Seja Parceiro:</strong>
-                        Empresas, escolas e organizações podem apoiar iniciativas e fortalecer a rede de colaboração.
-                    </li>
-                </ul>
+                <div>
+                    <span>
+                        <img src="/public/image/doacao.webp" alt="ícone de ação" title="ícone de ação">
+                        <p class="paragrafo"><strong>Doe materiais recicláveis:</strong>
+                            <strong>Doe seus recicláveis para uma cooperativa local:</strong>
+                            Separe seus resíduos e entregue em pontos de coletas ou diretamente em cooperativas da sua região.
+                        </p>
+                        
+                    </span>
+                    
+                    <span>
+                        <img src="/public/image/eventos.webp" alt="ícone de eventos e campanhas" title="eventos e campanhas">
+                        <p class="paragrafo"><strong>Participe de campanhas e eventos:</strong>
+                            Fique atento ao calendário de ações e envolva-se em multirões, palestras e atividades de conscientização.</p>
+                        </span>
+                 <span>
+                     <img src="/public/image/parceiros.webp" alt="ícone de seja um parceiro" title="Seja um parceiro">
+                     <p class="paragrafo"><strong>Seja Parceiro:</strong>
+                        Empresas, escolas e organizações podem apoiar iniciativas e fortalecer a rede de colaboração.</p>
+                    </span>                
+                </div>
             </article>
         </section>
         <footer class="footer">
