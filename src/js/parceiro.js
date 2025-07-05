@@ -1,17 +1,11 @@
-const parceiroSelecionado = {
-  tipo: "Ecoponto",
-  dataCadastro: "2023-02-15",
-  nome: "Ecoponto Verde Iririu",
-  responsavel: "João Silva",
-  telefone: "(47) 99999-8888",
-  email: "contato@ecopontoverdemar.com",
-  endereco: {
-    rua: "Rua das Palmeiras",
-    numero: "150",
-    bairro: " Iririu "
-  },
-  residuosAceitos: ["Papel", "Plástico", "Metal", "Vidro"]
-};
+const parceiroSelecionado = JSON.parse(localStorage.getItem('parceiroSelecionado'));
+
+if (!parceiroSelecionado) {
+  alert('Nenhum parceiro selecionado. Retornando à lista.');
+  window.location.href = 'listagem-parceiros.html';
+} else {
+  carregarDadosParceiro(parceiroSelecionado);
+}
 
 function formatarData(isoDate) {
   const d = new Date(isoDate);
@@ -23,30 +17,29 @@ function formatarData(isoDate) {
 
 function definirAvatar(tipo) {
   const avatar = document.getElementById("avatar");
-  let letra = tipo.charAt(0).toUpperCase();
-  let cor = "#91C995";
+  let letra = "?";
+  let corFundo = "#91C995";
+  let corTexto = "#fff";
 
   switch (tipo.toLowerCase()) {
     case "ecoponto":
       letra = "E";
-      cor = "#225A3F";
+      corFundo = "#225A3F";
       break;
     case "cooperativa":
       letra = "C";
-      cor = "#4C9A61";
+      corFundo = "#4C9A61";
       break;
     case "pev":
       letra = "P";
-      cor = "#EFD470";
-      avatar.style.color = "#225A3F";
+      corFundo = "#EFD470";
+      corTexto = "#225A3F";
       break;
-    default:
-      letra = "?";
-      cor = "#91C995";
   }
 
   avatar.textContent = letra;
-  avatar.style.backgroundColor = cor;
+  avatar.style.backgroundColor = corFundo;
+  avatar.style.color = corTexto;
 }
 
 function carregarDadosParceiro(p) {
@@ -61,7 +54,7 @@ function carregarDadosParceiro(p) {
   document.getElementById("district").textContent = p.endereco.bairro;
 
   const ul = document.getElementById("wasteList");
-  ul.innerHTML = "";
+  ul.innerHTML = ""; // Limpa a lista antes de adicionar
   p.residuosAceitos.forEach(residuo => {
     const li = document.createElement("li");
     li.textContent = residuo;
@@ -71,9 +64,8 @@ function carregarDadosParceiro(p) {
   definirAvatar(p.tipo);
 }
 
+
 document.getElementById("btnBack").addEventListener("click", () => {
   alert("Voltando para a listagem...");
-  
+  window.location.href = 'listagem-parceiros.html';
 });
-
-carregarDadosParceiro(parceiroSelecionado);

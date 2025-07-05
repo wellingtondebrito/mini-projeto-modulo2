@@ -35,10 +35,17 @@ function renderizarParceiros() {
             </div>
             <button class="btn-primary">Ver Detalhes</button>
         `;
+
+
+        button.addEventListener('click', () => {
+localStorage.setItem('parceiroSelecionadoID', parceiro.id);
+    window.location.href = 'parceiro.html'; 
+});
         container.appendChild(card);
-       
     });
 }
+        
+
 getParceiros();
 
 // Filtrar parceiros
