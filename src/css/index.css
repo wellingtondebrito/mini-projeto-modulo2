@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 40px;
 }
 
 
@@ -42,15 +43,23 @@ header.scrolled,
 header.scrolled nav.container-navegacao {
   background: #fff; /* Ou qualquer cor desejada */
   transition: background 0.3s;
-  box-shadow: 0 2px 8px rgba(34, 90, 63, 0.10);
 }
 
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--cor-primaria);
+  cursor: pointer;
+  margin-left: auto;
+  z-index: 1100;
+}
 
 header nav.container-navegacao {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 4px 12px; /* Reduza o padding lateral */
   display: flex;
 }
 
@@ -163,20 +172,8 @@ header nav.container-navegacao {
 
 section {
   width: 100%;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  padding: 40px 0;
- // background: #f8fff8; /* cor de fundo suave, opcional */
-  border-radius: 16px;  /* borda arredondada, opcional */
- // box-shadow: 0 2px 16px rgba(34, 90, 63, 0.05); /* sombra leve, opcional */
-  transition: box-shadow 0.3s;
-}
-
-/* Destaque extra para a section objetivo, se desejar */
-#objetivo {
- // background: #f5fff5;
- // box-shadow: 0 4px 24px rgba(34, 90, 63, 0.10);
- // border: 1px solid #e0e0e0;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 /* Remove fundo e sombra das sections internas, se necessário */
@@ -196,20 +193,22 @@ section > div {
   display: flex;
   flex-direction: column;
   align-items: center;
+ 
 }
 
 .container-inicio {
   width: 100%;
-  max-width: 1440px;
   display: flex;
   justify-content: space-around;
   padding: 40px;
   align-items: center;
+  gap: 20px;
+
 }
 .container-inicio > div:first-of-type {
-  width: 30%;
+  width: 50%;
   text-align: start;
-  height: auto;
+  height: auto;  
 }
 
 .container-inicio > div h2 {
@@ -226,8 +225,6 @@ section > div {
   display: flex;
 }
 .container-inicio div img {
-  cursor: pointer;
-  width: 90%;
   max-width: 500px; /* Limita a largura máxima */
   height: auto; /* Mantém a proporção */
   object-fit: contain; /* Garante que a imagem não distorça */
@@ -239,19 +236,29 @@ section > div {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  padding: 40px;
+  padding: 40px;  
+}
+
+.container-texto-objetivo{
+  border-right: 1px solid var(--cor-primaria);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 40px;  
 }
 
 .titulo {
   font-size: 30px;
-  font-weight: 600;
+  font-weight: bold;
   color: var(--cor-primaria);
   margin-bottom: 10px;
 }
 
 .subtitulo {
   font-size: 20px;
-  font-weight: 500;
+  font-weight: semibold;
   color: var(--cor-primaria);
   margin-bottom: 10px;
 }
@@ -260,6 +267,7 @@ section > div {
   font-size: 20px;
   color: var(--cor-primaria);
   text-align: justify;
+  font-weight: 400;
   margin-bottom: 20px;
 }
 
@@ -278,25 +286,26 @@ section > div {
   padding: 40px;
 }
 
-.container-texto-acoes {
-  width: 100%;
+.acoes-lista{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  padding: 40px;
+  gap: 10px;
+  justify-content: start;
+  align-items: start;
 }
 
-.container-texto-acoes div {
-  width: 100%;
+.acoes-lista > div{
   display: flex;
-  height: 100%;
-  //flex-direction: column;
-  justify-content: center;
-  //align-items: stretch;
-  padding: 30px;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.acao{
+  display: flex;
+  align-items: center;
   gap: 20px;
 }
+
 
 .video-container {
     position: relative;
@@ -304,13 +313,14 @@ section > div {
     max-width: 700px;
     aspect-ratio: 16/9;
     margin: 0 auto;
+    padding: 20px;
 }
 .video-container iframe {
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
-    top: 0;
+    top: 30px;
     border: none;
 }
 
@@ -323,10 +333,8 @@ section > div {
   justify-content: center;
   gap: 10px;
   align-items: center;
-  //font-weight: 600;
   padding: 10px;
   text-align: center;
-  //flex: 1; /* Permite que os spans ocupem o espaço disponível */
   width: 100%; /* Garante que os spans ocupem toda a largura disponível */
   box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
 }
@@ -363,6 +371,52 @@ section > div {
 
 
 // Responsividade
+@media (max-width: 900px) {
+  .container-navegacao {
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .container-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100vw;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(34, 90, 63, 0.10);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1001;
+    padding: 16px 0;
+  }
+  .container-menu.open {
+    display: flex;
+  }
+  .container-menu ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+  .container-menu ul li {
+    width: 100%;
+    text-align: left;
+    padding: 12px 24px;
+  }
+  .container-header-img {
+    width: auto;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+}
+
+
+
+
+
+
 @media (max-width: 1440px) {
   .container-principal,
   .content-section,

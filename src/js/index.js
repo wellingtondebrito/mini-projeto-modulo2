@@ -101,4 +101,8 @@ window.addEventListener('scroll', function() {
     header.classList.remove('scrolled');
   }
 });
+
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+  document.querySelector('.container-menu').classList.toggle('open');
+});
        
