@@ -17,27 +17,34 @@ async function getParceiros() {
 }
 
 function renderizarParceiros() {
-  const container = document.querySelector(".container-principal");
-  container.innerHTML = '';
-
-  parceiros.forEach((parceiro) => {
-    const card = document.createElement("div");
-    card.className = "card-parceiro";
-    card.innerHTML = `
+    const container = document.querySelector('.container-principal');    
+   
+    parceiros.forEach(parceiro => {
+        const card = document.createElement('div');
+        card.className = 'card-parceiro';
+        card.innerHTML = `
             <img src="/public/image/user.webp" alt="Logo Parceiro" class="avatar-img">
             <p class="card-nome">Nome do Parceiro: ${parceiro.nomeParceiro}</p>
             <div class="card-info">
                 <span class="card-bairro">Bairro: ${parceiro.bairro}</span>
-                <span class="card-data">Data de Criação: ${new Date(
-                  parceiro.dataCriacao
-                ).toLocaleDateString("pt-BR")}</span>
+                <span class="card-data">Data de Criação: ${new Date(parceiro.dataCriacao).toLocaleDateString('pt-BR', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                })}</span>
             </div>
             <a href="parceiro.html?id=${
               parceiro.id
             }" class="btn-primary">Ver Detalhes</a>
         `;
-    container.appendChild(card);
-  });
+
+
+        button.addEventListener('click', () => {
+localStorage.setItem('parceiroSelecionadoID', parceiro.id);
+    window.location.href = 'parceiro.html'; 
+});
+        container.appendChild(card);
+    });
 }
 
 getParceiros();
@@ -96,9 +103,11 @@ if (!isLoggedIn || !userEmail) {
   document.getElementById("userEmail").textContent = userEmail;
 }
 
-function logout() {
-  localStorage.removeItem("userEmail");
-  localStorage.removeItem("isLoggedIn");
-  localStorage.removeItem("loginTime");
-  window.location.href = "login-page.html";
-}
+        function logout() {
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('loginTime');
+            window.location.href = 'login-page.html';
+        }
+
+       
