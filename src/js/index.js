@@ -17,38 +17,25 @@ async function getParceiros() {
 }
 
 function renderizarParceiros() {
-  const container = document.querySelector(".container-principal");
-
-  parceiros.forEach((parceiro) => {
-    const card = document.createElement("div");
-    card.className = "card-parceiro";
-    card.innerHTML = `
+    const container = document.querySelector('.container-principal');    
+    container.innerHTML = ''; 
+    
+    parceiros.forEach(parceiro => {
+        const card = document.createElement('div');
+        card.className = 'card-parceiro';
+        card.innerHTML = `
             <img src="/public/image/user.webp" alt="Logo Parceiro" class="avatar-img">
             <p class="card-nome">Nome do Parceiro: ${parceiro.nomeParceiro}</p>
             <div class="card-info">
                 <span class="card-bairro">Bairro: ${parceiro.bairro}</span>
-                <span class="card-data">Data de Criação: ${new Date(
-                  parceiro.dataCriacao
-                ).toLocaleDateString("pt-BR", {
-                  year: "numeric",
-                  month: "2-digit",
-                  day: "2-digit",
-                })}</span>
+                <span class="card-data">Data de Criação: ${new Date(parceiro.dataCriacao).toLocaleDateString('pt-BR')}</span>
             </div>
             <button class="btn-primary">Ver Detalhes</button>
         `;
-
-    const button = card.querySelector(".btn-primary");
-    // Adiciona o evento de clique ao botão
-    
-
-    button.addEventListener("click", () => {
-      localStorage.setItem("parceiroSelecionadoID", parceiro.id);
-      window.location.href = "parceiro.html";
+        container.appendChild(card);
     });
-    container.appendChild(card);
-  });
 }
+        
 
 getParceiros();
 
@@ -106,22 +93,11 @@ if (!isLoggedIn || !userEmail) {
   document.getElementById("userEmail").textContent = userEmail;
 }
 
-function logout() {
-  localStorage.removeItem("userEmail");
-  localStorage.removeItem("isLoggedIn");
-  localStorage.removeItem("loginTime");
-  window.location.href = "login-page.html";
-}
+        function logout() {
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('loginTime');
+            window.location.href = 'login-page.html';
+        }
 
-window.addEventListener("scroll", function () {
-  const header = document.querySelector("header");
-  if (window.scrollY > 10) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
-});
-
- document.querySelector('.menu-toggle').addEventListener('click', function() {
-    document.querySelector('.container-menu').classList.toggle('open');
-  });
+       
