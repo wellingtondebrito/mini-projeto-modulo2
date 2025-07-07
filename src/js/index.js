@@ -18,7 +18,7 @@ async function getParceiros() {
 
 function renderizarParceiros() {
   const container = document.querySelector(".container-principal");
-  container.innerHTML = "";
+  container.innerHTML = '';
 
   parceiros.forEach((parceiro) => {
     const card = document.createElement("div");
