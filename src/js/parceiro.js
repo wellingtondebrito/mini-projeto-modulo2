@@ -1,11 +1,25 @@
-const parceiroSelecionado = JSON.parse(localStorage.getItem('parceiroSelecionado'));
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
 
-if (!parceiroSelecionado) {
-  alert('Nenhum parceiro selecionado. Retornando à lista.');
-  window.location.href = 'listagem-parceiros.html';
-} else {
-  carregarDadosParceiro(parceiroSelecionado);
-}
+  if (!id) {
+    alert('ID do parceiro não informado. Redirecionando...');
+    window.location.href = 'listagem-parceiros.html';
+    return;
+  }
+
+  fetch(`https://6860899b8e74864084437167.mockapi.io/jmt-futurodev/api/parceiros/${id}`)
+    .then(res => {
+      if (!res.ok) throw new Error('Parceiro não encontrado');
+      return res.json();
+    })
+    .then(parceiro => carregarDadosParceiro(parceiro))
+    .catch(err => {
+      console.error(err);
+      alert('Erro ao carregar os dados do parceiro.');
+      window.location.href = 'listagem-parceiros.html';
+    });
+});
 
 function formatarData(isoDate) {
   const d = new Date(isoDate);
@@ -22,11 +36,11 @@ function definirAvatar(tipo) {
   let corTexto = "#fff";
 
   switch (tipo.toLowerCase()) {
-    case "ecoponto":
+    case "eco":
       letra = "E";
       corFundo = "#225A3F";
       break;
-    case "cooperativa":
+    case "coo":
       letra = "C";
       corFundo = "#4C9A61";
       break;
@@ -43,29 +57,42 @@ function definirAvatar(tipo) {
 }
 
 function carregarDadosParceiro(p) {
-  document.getElementById("partnerName").textContent = p.nome;
-  document.getElementById("partnerType").textContent = p.tipo;
-  document.getElementById("registerDate").textContent = "Cadastro: " + formatarData(p.dataCadastro);
-  document.getElementById("responsible").textContent = p.responsavel;
-  document.getElementById("phone").textContent = p.telefone;
-  document.getElementById("email").textContent = p.email;
-  document.getElementById("street").textContent = p.endereco.rua;
-  document.getElementById("number").textContent = p.endereco.numero;
-  document.getElementById("district").textContent = p.endereco.bairro;
+  document.getElementById("partnerName").textContent = p.nomeParceiro;
+  document.getElementById("partnerType").textContent = p.tipoParceiro;
+  document.getElementById("registerDate").textContent = "Cadastro: " + formatarData(p.dataCriacao);
+  document.getElementById("responsible").textContent = p.responsavelParceiro;
+  document.getElementById("phone").textContent = p.telResponsavel;
+  document.getElementById("email").textContent = p.emailResponsavel;
+  document.getElementById("street").textContent = p.rua;
+  document.getElementById("number").textContent = p.numero;
+  document.getElementById("district").textContent = p.bairro;
 
   const ul = document.getElementById("wasteList");
-  ul.innerHTML = ""; // Limpa a lista antes de adicionar
-  p.residuosAceitos.forEach(residuo => {
-    const li = document.createElement("li");
-    li.textContent = residuo;
-    ul.appendChild(li);
-  });
+  ul.innerHTML = "";
 
-  definirAvatar(p.tipo);
+  const residuos = {
+    papel: "Papel",
+    plastico: "Plástico",
+    vidro: "Vidro",
+    metal: "Metal",
+    oleoCozinha: "Óleo de Cozinha",
+    pilhaBateria: "Pilha / Bateria",
+    eletronico: "Eletrônico",
+    roupa: "Roupa",
+    outros: "Outros"
+  };
+
+  for (const [chave, nome] of Object.entries(residuos)) {
+    if (p[chave]) {
+      const li = document.createElement("li");
+      li.textContent = nome;
+      ul.appendChild(li);
+    }
+  }
+
+  definirAvatar(p.tipoParceiro);
 }
 
-
 document.getElementById("btnBack").addEventListener("click", () => {
-  alert("Voltando para a listagem...");
   window.location.href = 'listagem-parceiros.html';
 });

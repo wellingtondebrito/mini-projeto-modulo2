@@ -18,7 +18,8 @@ async function getParceiros() {
 
 function renderizarParceiros() {
     const container = document.querySelector('.container-principal');    
-   
+    container.innerHTML = ''; 
+    
     parceiros.forEach(parceiro => {
         const card = document.createElement('div');
         card.className = 'card-parceiro';
@@ -27,24 +28,14 @@ function renderizarParceiros() {
             <p class="card-nome">Nome do Parceiro: ${parceiro.nomeParceiro}</p>
             <div class="card-info">
                 <span class="card-bairro">Bairro: ${parceiro.bairro}</span>
-                <span class="card-data">Data de Criação: ${new Date(parceiro.dataCriacao).toLocaleDateString('pt-BR', {
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit'
-                })}</span>
+                <span class="card-data">Data de Criação: ${new Date(parceiro.dataCriacao).toLocaleDateString('pt-BR')}</span>
             </div>
-            <button class="btn-primary">Ver Detalhes</button>
+            <a href="parceiro.html?id=${parceiro.id}" class="btn-primary">Ver Detalhes</a>
         `;
-
-
-        button.addEventListener('click', () => {
-localStorage.setItem('parceiroSelecionadoID', parceiro.id);
-    window.location.href = 'parceiro.html'; 
-});
         container.appendChild(card);
     });
 }
-        
+
 
 getParceiros();
 
