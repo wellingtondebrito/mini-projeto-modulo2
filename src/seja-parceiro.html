@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <title>Seja Parceiro</title>
+</head>
+<body>
+    <header class="scrolled">
+        <nav class="container-navegacao">
+            <div class="container-header-img">
+                <img src="/public/image/logo.webp" alt="logo">
+                <h1>  NOSSA CIDADE <br>SUSTENTÁVEL</h1>
+            </div>
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="container-menu">
+                 <ul>
+                    <li>
+                        <a class="nav-link" href="index.html" title="Página inicial">Inicio</a>
+                    </li>
+                    <li><a href="./login-page.html"  class="btn-login">Login</a></li>
+                </ul>
+            </div>
+           
+    </header>
+    <main>
+        <h1>Seja Parceiro</h1>
+        <p>Se você deseja se tornar um parceiro, preencha o formulário abaixo:</p>
+        <form action="/submit-parceiro" method="post">
+            <fieldset>
+                <legend>Informações do Parceiro</legend>
+                 <label for="nome">Nome do Parceiro:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">Email do Responsável:</label>
+                <input type="email" id="email" name="email" required>
+
+                 <label for="telefone">Telefone do Responsável:</label>
+                 <input type="tel" id="telefone" name="telefone">
+                 <label>Tipo do parceiro:</label>
+                 <select id="tipoParceiro" name="tipoParceiro" required>
+                     <option value="empresa">Ecopontos (ECO)</option>
+                     <option value="ong">Cooperativas (COO)</option>
+                     <option value="individuo">Ponto de Entrega Voluntária (PEV)</option>
+            </fieldset>
+           <fieldset>
+                <legend>Tipos de Resíduos</legend>
+                <p>Selecione os tipos de resíduos que você coleta:</p>
+                <div>
+                    <label for="papel">Papel:</label>
+                    <input type="checkbox" id="papel" name="papel" value="papel" aria-label="papel">
+                    <label for="plastico">Plástico:</label>
+                    <input type="checkbox" id="plastico" name="plástico" value="plastico">
+                     <label for="vidro">Vidro:</label>
+                    <input type="checkbox" id="vidro" name="vidro" value="vidro">
+                     <label for="metal">Metal:</label>
+                    <input type="checkbox" id="metal" name="metal" value="metal">
+                     <label for="oleoCozinha">Óleo de Cozinha:</label>
+                    <input type="checkbox" id="oleoCozinha" name="oleoCozinha" value="oleoCozinha">
+                     <label for="pilhaBateria">Pilhas e baterias:</label>
+                    <input type="checkbox" id="pilhaBateria" name="pilhaBateria" value="pilhaBateria">
+                     <label for="eletronicos">Eletrônicos:</label>
+                    <input type="checkbox" id="eletronicos" name="eletronicos" value="eletronicos">
+                     <label for="Roupas">Roupas:</label>
+                    <input type="checkbox" id="roupas" name="roupas" value="roupas">
+                     <label for="outros">Outros:</label>
+                    <input type="checkbox" id="outros" name="outros" value="outros">               
+                </div>
+           </fieldset>
+           <fieldset>
+             <legend>Endereço:</legend>
+             <div>
+                 <label for="rua">Rua:</label>
+                 <input type="text" id="rua" name="rua" required>
+                 <label for="numero">numero:</label>
+                 <input type="text" id="numero" name="numero" required>
+                 <label for="bairro">bairro:</label>
+                 <input type="text" id="bairro" name="bairro" required>
+             </div>
+           </fieldset>
+
+            <button type="submit">Enviar</button>
+    </main>
+</body>
+</html>
