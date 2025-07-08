@@ -390,7 +390,7 @@ section {
   .container-header-img {
     width: 100%;           /* Logo ocupa toda a largura */
     justify-content: flex-start;
-    margin-bottom: 8px;
+    margin-bottom: 0; /* Remove margem inferior */
   }
   .container-navegacao .container-menu {
     width: 100%;           /* Menu ocupa toda a largura */
@@ -410,21 +410,23 @@ section {
     border-bottom: 1px solid #eee;
   }
   .menu-toggle {
-    display: block; /* Mostra o botão hamburguer */
+    display: block !important; /* Mostra o botão hamburguer */
+    position: relative;
+    z-index: 1100;
   }
   .container-menu {
-    display: none;  /* Esconde o menu por padrão */
-  }
-  .container-menu.open {
-    display: flex;  /* Mostra o menu quando aberto */
-    flex-direction: column;
-    background: #fff;
+    display: none !important;  /* Esconde o menu por padrão */
     position: absolute;
-    top: 60px;
+    top: 100%;
     left: 0;
     width: 100vw;
+    background: #fff;
     z-index: 1001;
     box-shadow: 0 2px 8px rgba(34,90,63,0.10);
+  }
+  .container-menu.open {
+    display: flex !important;  /* Mostra o menu quando aberto */
+    flex-direction: column;
   }
   .container-inicio {
     flex-direction: column; /* Empilha texto e imagem */
