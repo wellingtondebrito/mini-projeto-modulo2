@@ -1,0 +1,116 @@
+
+body{
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+} 
+
+
+.container-form-parceiro{
+    margin-top: 80px;
+width: 70%;
+align-self: center;
+}
+
+.form-parceiro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-parceiro div, fieldset{
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+    
+}
+
+.form-parceiro div, fieldset:last-child{
+flex-wrap: wrap;
+
+}
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+  color: #2a6d3b;
+}
+
+form > div,
+fieldset {
+  margin-bottom: 1rem;
+  display: flex;
+    flex-direction: column;
+
+}
+
+label {
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+  width: 30%;
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: transparent;
+  font-size: 1rem;
+}
+
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+legend {
+  font-weight: bold;
+  color: #2a6d3b;
+  padding: 0 0.5rem;
+}
+
+fieldset div label {
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #2a6d3b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #1e502b;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  main {
+    padding: 1.5rem;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 1rem;
+  }
+}

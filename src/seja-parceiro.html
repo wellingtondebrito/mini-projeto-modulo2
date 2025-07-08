@@ -4,86 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/cadastro.css">
+<link rel="stylesheet" href="./css/seja-parceiro.css">
     <title>Seja Parceiro</title>
 </head>
 <body>
-    <header class="scrolled">
-        <nav class="container-navegacao">
-            <div class="container-header-img">
-                <img src="/public/image/logo.webp" alt="logo">
-                <h1>  NOSSA CIDADE <br>SUSTENTÁVEL</h1>
+    <div id="header-placeholder"></div>
+
+        <div class="container-form-parceiro">
+            <h1>Cadastro de Parceiro</h1>
+
+        <form action="/submit-parceiro" method="post" class="form-parceiro">
+
+        <fieldset>
+            <legend>Dados pessoais</legend>
+
+        <!-- Nome do parceiro -->
+        <div>
+            <label for="nome">Nome do Parceiro:</label>
+            <input type="text" id="nome" name="nome" required />
+        </div>
+
+        <!-- Tipo do parceiro -->
+        <div>
+            <label for="tipoParceiro">Tipo do Parceiro:</label>
+            <select id="tipoParceiro" name="tipoParceiro" required>
+            <option value="">Selecione uma opção</option>
+            <option value="ECO">Ecopontos (ECO)</option>
+            <option value="COO">Cooperativas (COO)</option>
+            <option value="PEV">Ponto de Entrega Voluntária (PEV)</option>
+            </select>
+        </div>
+
+        <!-- Responsável -->
+        <div>
+            <label for="responsavel">Responsável pelo Parceiro:</label>
+            <input type="text" id="responsavel" name="responsavel" required />
+        </div>
+
+        <!-- Telefone -->
+        <div>
+            <label for="telefone">Telefone do Responsável:</label>
+            <input type="tel" id="telefone" name="telefone" required />
+        </div>
+
+        <!-- Email -->
+        <div>
+            <label for="email">E-mail do Responsável:</label>
+            <input type="email" id="email" name="email" required />
+        </div>
+        </fieldset>
+        <!-- Endereço -->
+        <fieldset>
+            <legend>Endereço</legend>
+            <div>
+            <label for="rua">Rua:</label>
+            <input type="text" id="rua" name="rua" required />
             </div>
-            <button class="menu-toggle" aria-label="Abrir menu">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <div class="container-menu">
-                 <ul>
-                    <li>
-                        <a class="nav-link" href="index.html" title="Página inicial">Inicio</a>
-                    </li>
-                    <li><a href="./login-page.html"  class="btn-login">Login</a></li>
-                </ul>
+            <div>
+            <label for="numero">Número:</label>
+            <input type="text" id="numero" name="numero" required />
             </div>
-           
-    </header>
-    <main>
-        <h1>Seja Parceiro</h1>
-        <p>Se você deseja se tornar um parceiro, preencha o formulário abaixo:</p>
-        <form action="/submit-parceiro" method="post">
-            <fieldset>
-                <legend>Informações do Parceiro</legend>
-                 <label for="nome">Nome do Parceiro:</label>
-                <input type="text" id="nome" name="nome" required>
+            <div>
+            <label for="bairro">Bairro:</label>
+            <input type="text" id="bairro" name="bairro" required />
+            </div>
+        </fieldset>
 
-                <label for="email">Email do Responsável:</label>
-                <input type="email" id="email" name="email" required>
+        <!-- Tipos de resíduos -->
+        <fieldset>
+            <legend>Tipos de Resíduos Aceitos</legend>
+            <div>
+            <label><input type="checkbox" name="residuos" value="papel" /> Papel</label><br />
+            <label><input type="checkbox" name="residuos" value="plastico" /> Plástico</label><br />
+            <label><input type="checkbox" name="residuos" value="vidro" /> Vidro</label><br />
+            <label><input type="checkbox" name="residuos" value="metal" /> Metal</label><br />
+            <label><input type="checkbox" name="residuos" value="oleo" /> Óleo de Cozinha</label><br />
+            <label><input type="checkbox" name="residuos" value="pilhas" /> Pilhas e Baterias</label><br />
+            <label><input type="checkbox" name="residuos" value="eletronicos" /> Eletrônicos</label><br />
+            <label><input type="checkbox" name="residuos" value="roupas" /> Roupas</label><br />
+            <label><input type="checkbox" name="residuos" value="outros" /> Outros</label>
+            </div>
+        </fieldset>
 
-                 <label for="telefone">Telefone do Responsável:</label>
-                 <input type="tel" id="telefone" name="telefone">
-                 <label>Tipo do parceiro:</label>
-                 <select id="tipoParceiro" name="tipoParceiro" required>
-                     <option value="empresa">Ecopontos (ECO)</option>
-                     <option value="ong">Cooperativas (COO)</option>
-                     <option value="individuo">Ponto de Entrega Voluntária (PEV)</option>
-            </fieldset>
-           <fieldset>
-                <legend>Tipos de Resíduos</legend>
-                <p>Selecione os tipos de resíduos que você coleta:</p>
-                <div>
-                    <label for="papel">Papel:</label>
-                    <input type="checkbox" id="papel" name="papel" value="papel" aria-label="papel">
-                    <label for="plastico">Plástico:</label>
-                    <input type="checkbox" id="plastico" name="plástico" value="plastico">
-                     <label for="vidro">Vidro:</label>
-                    <input type="checkbox" id="vidro" name="vidro" value="vidro">
-                     <label for="metal">Metal:</label>
-                    <input type="checkbox" id="metal" name="metal" value="metal">
-                     <label for="oleoCozinha">Óleo de Cozinha:</label>
-                    <input type="checkbox" id="oleoCozinha" name="oleoCozinha" value="oleoCozinha">
-                     <label for="pilhaBateria">Pilhas e baterias:</label>
-                    <input type="checkbox" id="pilhaBateria" name="pilhaBateria" value="pilhaBateria">
-                     <label for="eletronicos">Eletrônicos:</label>
-                    <input type="checkbox" id="eletronicos" name="eletronicos" value="eletronicos">
-                     <label for="Roupas">Roupas:</label>
-                    <input type="checkbox" id="roupas" name="roupas" value="roupas">
-                     <label for="outros">Outros:</label>
-                    <input type="checkbox" id="outros" name="outros" value="outros">               
-                </div>
-           </fieldset>
-           <fieldset>
-             <legend>Endereço:</legend>
-             <div>
-                 <label for="rua">Rua:</label>
-                 <input type="text" id="rua" name="rua" required>
-                 <label for="numero">numero:</label>
-                 <input type="text" id="numero" name="numero" required>
-                 <label for="bairro">bairro:</label>
-                 <input type="text" id="bairro" name="bairro" required>
-             </div>
-           </fieldset>
-
+        <!-- Botão de envio -->
+        <div>
             <button type="submit">Enviar</button>
-    </main>
+        </div>
+        </form>
+
+    </div>
 </body>
+<script src="./js/header.js"></script>
+<script src="./js/submit-parceiro.js"></script>
 </html>
