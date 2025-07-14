@@ -89,6 +89,11 @@ form.addEventListener("input", (event) => {
                   parceiro.id
                 } >Ver Detalhes</button>
             `;
+             const button = card.querySelector(".btn-primary");
+    button.addEventListener("click", () => {
+      localStorage.setItem("parceiroSelecionadoID", parceiro.id);
+      window.location.href = `parceiro.html?id=${parceiro.id}`;
+    });
       container.appendChild(card);
     });
 });
